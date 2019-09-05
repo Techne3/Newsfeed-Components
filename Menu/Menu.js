@@ -27,6 +27,30 @@
   
 */
 
+
+
+// const containers = document.querySelector('.menu')
+
+// menuItems.forEach(item => {
+//    containers.appendChild(createMenu())
+// })
+
+// function createMenu(menuItems){
+//   const menu = document.createElement('div')
+//   const list = document.createElement('ul')
+
+
+
+// menuButton.appendChild(menu);
+// menuButton.appendChild(list)
+
+
+// menu.textContent = menuItems;
+
+//   return menu
+// }
+
+// alert('help')
 let menuItems = [
   'Students',
   'Faculty',
@@ -36,16 +60,32 @@ let menuItems = [
   'Log Out'
 ];
 
-const container = document.querySelector('.menu')
 
-function createMenu(menuItems){
-  const menu = document.createElement('div')
-  const 
+const menuBtn = document.querySelector('.menu-button');
+const menus = document.querySelector('.menu')
+const body = document.querySelector('body')
 
+function menu (menuItems){
+  const newMenu = document.createElement('div');
+  const menuList = document.createElement('ul');
 
+  menuItems.forEach(items => {
+    const menuListItems = document.createElement('li');
+    menuList.appendChild(menuListItems);
+    menuListItems.textContent = items;
+  })
+  newMenu.appendChild(menuList);
+  
 
+  newMenu.classList.add('menu');
+  menuBtn.addEventListener('click', e => {
+  newMenu.classList.toggle('menu--open');
+  console.log('HEY'); 
+})
 
+return newMenu;
 
-
-  return menu
 }
+const header = document.querySelector('.header');
+header.appendChild(menu(menuItems))
+
